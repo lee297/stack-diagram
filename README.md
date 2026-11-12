@@ -87,9 +87,9 @@ The diagram is one HTML file with its fonts and logos inlined, so it renders any
   <img src="docs/html-page.png" alt="The docs chatbot diagram as an HTML page in a browser window, with a title, a short description, the diagram, a legend and a footer" width="100%">
 </picture>
 
-## Share it to the gallery
+## Gallery sharing is removed in this fork
 
-After drawing, the agent offers once to post the diagram to the public gallery at https://stacks.caru.moe. It shows what will be public (the light and dark PNGs, an English title, the tech stack and a display name) and posts only after you say yes twice. Your prompt is never sent. A GitHub login is optional and never shown; it only lets you delete the post later. The site's source is in [`site/`](site).
+Upstream offers to post finished diagrams to a public gallery. This fork removes `scripts/share.py` and that step from `SKILL.md`, so nothing is uploaded. The only network access left is the logo download in `fetch_icons.py`.
 
 ## What you get
 
