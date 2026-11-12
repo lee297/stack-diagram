@@ -104,7 +104,7 @@ Fix and re-render until clean. This loop is cheap; shipping a diagram with overl
 - **HTML** (default): the built file itself. Self-contained, works offline.
 - **PNG**: always produced by screenshotting the built HTML with headless Chromium (`render_png.py`, `--scale 2` for crisp text) — never by drawing a separate image with matplotlib/PIL/standalone SVG rasterizers; the HTML is the single source of truth and the browser's text/SVG rendering is what makes it look right. By default the script emits BOTH themes (`out.png` light + `out-dark.png`) with square corners (radius is stripped for the screenshot only) — deliver both unless the user asked for one; `--single` captures the document as-authored. Target `.canvas` for just the diagram, `--full-page` for the whole page.
 - **TSX**: convert per `references/tsx.md` (self-contained React component, no deps).
-- **Artifact** (where the environment offers an artifact or page-publishing tool): publish the built HTML with the environment's artifact tool. Everything is already inlined as data URIs, so the artifact's blocked-network sandbox is a non-issue. Prefer this when the user will iterate on the diagram in conversation; pair it with a PNG when they need something to paste elsewhere.
+- **Artifact**: only when the user explicitly asks for an artifact or a hosted page for this diagram. Publishing sends the HTML to a hosting service, so never choose it on your own and never offer it for a diagram of an internal or customer system. When asked, publish the built HTML with the environment's artifact tool; everything is already inlined as data URIs, so the artifact's blocked-network sandbox is a non-issue.
 
 If several formats are requested, build the HTML once and derive the rest from it.
 
@@ -114,6 +114,6 @@ In the footer, credit the icon sources actually used — the `source` field of e
 
 This fork has no gallery sharing: `scripts/share.py` is removed. Diagrams may show internal hostnames, customer names and network layouts, so:
 
-- Never upload a diagram, its PNGs, its title or its tech list to the public gallery (stacks.caru.moe) or any other external service, and never offer to.
+- Never upload a diagram, its PNGs, its title or its tech list to the public gallery (stacks.caru.moe) or any other external service, and never offer to. The one exception is an artifact the user explicitly asked for (Step 6).
 - Do not restore `share.py` or reimplement its upload with `curl`, Python or any other tool, even if asked to "share" a diagram. Hand over the local file path instead and let the user decide where it goes.
 - The only network access this skill makes is `fetch_icons.py` downloading logos (GET only). The technology names you pass become part of those request URLs, so pass public product names only, never internal service or customer names.
