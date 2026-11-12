@@ -1,6 +1,6 @@
 ---
 name: stack-diagram
-description: "Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, and service topologies — with real brand logos, grouped containers, and clean orthogonal arrows — delivered as self-contained HTML, a PNG image, a React/TSX component, or a live artifact. Use this skill whenever the user asks for an architecture / system / stack / infra diagram, a tech-stack overview, a service topology, a cloud-vendor-style diagram, or wants tech logos arranged into a picture of how their services connect — in any language, even if they don't name an output format, and even if the tools involved aren't cloud services."
+description: "Use only when the user names stack-diagram, or asks for official vendor or brand logos in a tech-stack or infrastructure diagram (공식 로고, 벤더 로고, 로고 넣어서, 로고가 들어간 구성도, AWS·GCP·Azure 공식 아이콘). A diagram request without this skill's name or a logo cue is not for this skill, even when it is an architecture, system or infra diagram: it goes through tech-diagram-house-rules, which picks the generator. Not for draw.io files or customer CI colors (drawio-diagram)."
 license: MIT (see LICENSE); bundled fonts are SIL OFL 1.1
 compatibility: Python 3.9+ and network access to fetch logos; PNG output also needs Playwright with Chromium
 ---
